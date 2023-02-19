@@ -7,10 +7,10 @@ counter = 0
 score = 0
 number1 = 0
 number2 = 0
-print("select difficulty 1, 2, 3")
+print("select difficulty 1, 2, 3, 4")
 
 difficult =int(input())
-if difficult > 3:
+if difficult > 4:
     print("invalid difficulty")
     exit()
 
@@ -25,6 +25,10 @@ if difficult == 2:
 if difficult == 3:
     number1 = 0
     number2 = 100
+
+if difficult == 4:
+    number1 = 0
+    number2 = 9999999
 
 start_time = time.time()
 for X in range(5):
