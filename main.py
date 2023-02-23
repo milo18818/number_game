@@ -1,5 +1,14 @@
+import os
 import random
 import time
+
+highscore = 0
+
+if os.path.isfile("highscore"):
+    f = open("highscore", "r")
+    highscore = int(f.read())
+    f.close()
+
 start_time = 0
 end_time = 0
 counter = 0
@@ -47,3 +56,8 @@ for X in range(5):
 end_time = time.time() - start_time
 end_time = int(end_time)
 print("your score is " + str(score) + " you did it!" + " your time was " + str(end_time) + " seconds")
+if highscore < score:
+    f = open("highscore", "w")
+    f.write(str(score))
+    f.close()
+    print("new high score")
