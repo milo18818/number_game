@@ -15,6 +15,8 @@ start_time = 0
 end_time = 0
 counter = 0
 
+numberquestion = 5
+
 score = 0
 number1 = 0
 number2 = 0
@@ -42,7 +44,9 @@ if difficult == 4:
     number2 = 9999999
 
 start_time = time.time()
-for X in range(5):
+if gamemode == ("numberI"):
+    numberquestion = 9223372036854775807
+for X in range(numberquestion):
     random_number = random.randint(number1, number2)
     random_number1 = random.randint(number1, number2)
     print("what is " + str(random_number1) + "+" + str(random_number))
@@ -55,7 +59,7 @@ for X in range(5):
         score += 1
     else:
         print("wrong answer")
-        if gamemode == ("numberH"):
+        if gamemode == "numberH" or gamemode == "numberI":
             print("game ended")
             break
 end_time = time.time() - start_time
