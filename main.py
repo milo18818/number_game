@@ -11,8 +11,10 @@ if os.path.isfile("highscore"):
 
 print("select gamemode Hardore = H | infinite = I | normal = N")
 gamemode = input()
+gamemode = gamemode.upper()
 print("select operator subtraction = S | addition = A")
 operator = input()
+operator = operator.upper()
 
 start_time = 0
 end_time = 0
