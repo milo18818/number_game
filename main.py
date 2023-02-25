@@ -9,8 +9,11 @@ if os.path.isfile("highscore"):
     highscore = int(f.read())
     f.close()
 
-print("select gamemode")
+print("select gamemode Hardore = H | infinite = I | normal = N")
 gamemode = input()
+print("select operator subtraction = S | addition = A")
+operator = input()
+
 start_time = 0
 end_time = 0
 counter = 0
@@ -44,12 +47,12 @@ if difficult == 4:
     number2 = 9999999
 
 start_time = time.time()
-if gamemode == ("numberI"):
+if gamemode == ("I"):
     numberquestion = 9223372036854775807
 for X in range(numberquestion):
     random_number = random.randint(number1, number2)
     random_number1 = random.randint(number1, number2)
-    if gamemode == ("s"):
+    if operator == ("S"):
         print("what is " + str(random_number1) + "-" + str(random_number))
     else:
         print("what is " + str(random_number1) + "+" + str(random_number))
@@ -58,12 +61,12 @@ for X in range(numberquestion):
     if answer == "X" or answer == "exit":
         print("exited")
         break
-    if gamemode == ("s"):
+    if operator == ("S"):
         if int(answer) == (random_number1 - random_number):
             score +=1
         else:
             print("wrong answer")
-            if gamemode == "numberH" or gamemode == "numberI":
+            if gamemode == "H" or gamemode == "I":
                 print("game ended")
                 break
     else:
@@ -71,7 +74,7 @@ for X in range(numberquestion):
             score += 1
         else:
             print("wrong answer")
-            if gamemode == "numberH" or gamemode == "numberI":
+            if gamemode == "H" or gamemode == "I":
                 print("game ended")
                 break
 end_time = time.time() - start_time
