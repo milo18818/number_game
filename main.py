@@ -49,19 +49,31 @@ if gamemode == ("numberI"):
 for X in range(numberquestion):
     random_number = random.randint(number1, number2)
     random_number1 = random.randint(number1, number2)
-    print("what is " + str(random_number1) + "+" + str(random_number))
+    if gamemode == ("s"):
+        print("what is " + str(random_number1) + "-" + str(random_number))
+    else:
+        print("what is " + str(random_number1) + "+" + str(random_number))
     answer = input()
     answer = answer.upper()
     if answer == "X" or answer == "exit":
         print("exited")
         break
-    if int(answer) == (random_number1 + random_number):
-        score += 1
+    if gamemode == ("s"):
+        if int(answer) == (random_number1 - random_number):
+            score +=1
+        else:
+            print("wrong answer")
+            if gamemode == "numberH" or gamemode == "numberI":
+                print("game ended")
+                break
     else:
-        print("wrong answer")
-        if gamemode == "numberH" or gamemode == "numberI":
-            print("game ended")
-            break
+        if int(answer) == (random_number1 + random_number):
+            score += 1
+        else:
+            print("wrong answer")
+            if gamemode == "numberH" or gamemode == "numberI":
+                print("game ended")
+                break
 end_time = time.time() - start_time
 end_time = int(end_time)
 print("your score is " + str(score) + " you did it!" + " your time was " + str(end_time) + " seconds")
