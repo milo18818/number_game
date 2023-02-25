@@ -12,9 +12,13 @@ if os.path.isfile("highscore"):
 print("select gamemode Hardore = H | infinite = I | normal = N")
 gamemode = input()
 gamemode = gamemode.upper()
+if not (gamemode == "H" or gamemode == "I" or gamemode == "N"):
+    print("invalid gamemode using default")
 print("select operator subtraction = S | addition = A")
 operator = input()
 operator = operator.upper()
+if not(operator == "S" or operator == "A"):
+    print("invalid operator using default")
 
 start_time = 0
 end_time = 0
