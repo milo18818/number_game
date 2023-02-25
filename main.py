@@ -14,10 +14,10 @@ gamemode = input()
 gamemode = gamemode.upper()
 if not (gamemode == "H" or gamemode == "I" or gamemode == "N"):
     print("invalid gamemode using default")
-print("select operator subtraction = S | addition = A")
+print("select operator subtraction = S | addition = A | multiplication = M")
 operator = input()
 operator = operator.upper()
-if not(operator == "S" or operator == "A"):
+if not(operator == "S" or operator == "A" or operator == "M"):
     print("invalid operator using default")
 
 start_time = 0
@@ -60,8 +60,10 @@ for X in range(numberquestion):
     random_number1 = random.randint(number1, number2)
     if operator == ("S"):
         print("what is " + str(random_number1) + "-" + str(random_number))
-    else:
+    elif operator == ("A"):
         print("what is " + str(random_number1) + "+" + str(random_number))
+    elif operator == ("M"):
+        print("what is " + str(random_number1) + "x" + str(random_number))
     answer = input()
     answer = answer.upper()
     if answer == "X" or answer == "exit":
@@ -75,8 +77,16 @@ for X in range(numberquestion):
             if gamemode == "H" or gamemode == "I":
                 print("game ended")
                 break
-    else:
+    elif operator == ("A"):
         if int(answer) == (random_number1 + random_number):
+            score += 1
+        else:
+            print("wrong answer")
+            if gamemode == "H" or gamemode == "I":
+                print("game ended")
+                break
+    elif operator == ("M"):
+        if int(answer) == (random_number1 * random_number):
             score += 1
         else:
             print("wrong answer")
